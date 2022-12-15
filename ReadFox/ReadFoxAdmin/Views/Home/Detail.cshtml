@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Books>;
+
+@foreach (var item in Model)
+{
+    <h1>
+        @item.productName
+    </h1>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/Mq-r7f1agv0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <p>ผู้แต่: @item.Author</p>
+    <p>สำนักพิมพ์ผู้ถือลิขสิทธิ์ : @item.pubisher</p>
+    <h2>เนื้อเรื่องย่อ</h2>
+    <p>@item.description</p>
+    <h2>ราคา: @item.price บาท</h2>
+
+    <div class="row" >
+        <div class="col" >
+            <form  asp-controller="Product" asp-action="EditBooks" method="get" >
+                           <button type="submit" class="btn btn-primary" name="bookID" value=@item.bookID>Edit</button>
+                   </form>
+        </div>
+        <div class="col" >
+            <form asp-action="DeleteBooks" method="get" >
+                           <button type="submit" class="btn btn-danger" name="bookID" value=@item.bookID onclick="return confirm('คุณต้องการทำการลบหนังสือเล่นนี้ : @item.productName ใช่หรือไม่')">Delete</button>
+                   </form>
+        </div>
+        <div class="col" >
+            <form asp-action="Black" >
+                           <button type="submit" class="btn btn-secondary" >Back</button>
+                   </form>
+        </div>
+    </div>
+
+}
+
+
+

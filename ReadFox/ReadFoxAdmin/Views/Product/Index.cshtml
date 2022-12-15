@@ -1,0 +1,42 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<form asp-action="AddBooks" method="post" >
+    <input type="hidden" name="count" value=@ViewBag.count >
+    <div class="form-group">
+    <label for="exampleInputEmail1">ProductName</label>
+    <input class="form-control" type="text" placeholder="Product" name="productname" >
+     </div>
+     <div class="form-group">
+    <label for="exampleInputPassword1">Price</label>
+    <input class="form-control" type="text" placeholder="Price" name="price" >
+    </div>
+    <div class="form-group">
+    <label for="exampleInputPassword1">Pubblisher</label>
+    <input class="form-control" type="text" placeholder="Pubblisher" name="pubbisger">
+    </div>
+    <div class="form-group">
+    <label for="exampleInputPassword1">Author</label>
+    <input class="form-control" type="text" placeholder="Author" name="author">
+    </div>
+    <div class="form-group">
+    <label for="exampleInputPassword1">Description</label>
+    <input class="form-control" type="text" placeholder="Description" name="descrip">
+    </div>
+      <div class="form-group">
+    <label for="exampleFormControlSelect1">Category select</label>
+    <select class="form-control" id="exampleFormControlSelect1" placeholder="CategoriID" name="categoryID" >
+      <option value="C001" >Comic</option>
+      <option value="C002">Novel</option>
+    </select>
+  </div>
+    @*<div class="form-group">
+    <label for="exampleInputPassword1">CategoriID</label>
+    <input class="form-control" type="text" placeholder="CategoriID" name="categoryID">
+    </div>*@
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

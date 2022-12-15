@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model IEnumerable<Books>;
+ 
+
+<div class="text-center">
+    <h1 class="display-4">รายการหนังสือ</h1>
+ 
+ 
+    <table class="table table-success table-striped">
+        <thead>
+            <tr>
+                <td>เล่มที่</td>
+                <td>รหัสหนังสือ</td>
+                 <td>ชื่อเรื่อง</td>
+                 <td>ประเภท</td>
+                 <td>ชื่อผู้แต่ง</td>
+                 <td>สำนักพิมพ์ผู้ถือลิขสิทธิ์</td>
+                 <td>ราคา</td>
+            </tr>
+        </thead>
+       @{
+           int count = 1;
+            @foreach (var item in Model)
+           {
+            <tr>
+                   <td>@count</td>
+                   <td>@item.bookID</td>
+                   <td>@item.productName</td>
+                   <td>@item.CattegoryName</td>
+                   <td>@item.Author</td>
+                   <td>@item.pubisher</td>
+                   <td>@item.price</td>
+                   <td> บาท </td>
+                   <td>
+                   <form asp-action="Detail" method="get" >
+                           <button type="submit" class="btn btn-success" name="bookID" value=@item.bookID>Detail</button>
+                   </form>
+                   </td>
+                   <td>
+                   <form asp-action="DeleteBooks" method="get" >
+                           <button type="submit" class="btn btn-danger" name="bookID" value=@item.bookID onclick="return confirm('คุณต้องการทำการลบหนังสือเล่นนี้ : @item.productName ใช่หรือไม่')">Delete</button>
+                   </form>
+                   </td>
+            </tr>
+              count++;
+        }
+       }
+    </table>
+    
+</div>
+
